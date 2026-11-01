@@ -32,8 +32,6 @@ harness shell is needed.
 | --- | --- |
 | <img src="screenshots/light.jpeg" width="420" alt="Light mode"> | <img src="screenshots/dark.jpeg" width="420" alt="Dark mode"> |
 
-> Screenshots predate the v1.0.1 composer-button contrast fix.
-
 ## How it works
 
 The dsh web frontend exposes a `theme` client service. `overrideTokens(source,

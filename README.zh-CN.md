@@ -29,8 +29,6 @@
 | --- | --- |
 | <img src="screenshots/light.jpeg" width="420" alt="亮色模式"> | <img src="screenshots/dark.jpeg" width="420" alt="暗色模式"> |
 
-> 截图早于 v1.0.1 的发送按钮对比度修复。
-
 ## 原理
 
 dsh 前端暴露 `theme` client 服务，`overrideTokens(source, tokens)` 会把
