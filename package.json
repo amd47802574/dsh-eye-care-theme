@@ -1,0 +1,22 @@
+{
+  "name": "dsh-eye-care-theme",
+  "version": "1.0.1",
+  "description": "Persistent eye-care theme for the dsh (DeepSeek Harness) Web UI — Palenight dark + warm neutral light, ~100 theme tokens.",
+  "type": "module",
+  "exports": {
+    ".": "./plugin/host-module.js",
+    "./client": "./plugin/client-module.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "immediately": true
+    }
+  },
+  "license": "MIT"
+}
