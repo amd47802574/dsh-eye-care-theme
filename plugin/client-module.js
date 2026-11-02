@@ -134,12 +134,29 @@ window.__ModuleLoader__.load({
         '--dsw-alias-markdown-citation': { light: '#00897B1F', dark: '#80CBC433' },
         // ---- toast / tooltip / scrollbar ----
         '--dsw-alias-toast-bg': { light: '#FAF9F6', dark: '#1E2230' },
+        '--dsw-alias-toast-label': { light: '#4F4B45', dark: '#FFFFFF' },
         '--dsw-alias-tooltip-bg': { light: '#FAF9F6', dark: '#1E2230' },
         '--dsw-alias-scrollbar-bg-l1': { light: '#E4E1D6', dark: '#333747' },
         '--dsw-alias-scrollbar-hover-l1': { light: '#D1CDC0', dark: '#4A5068' },
         '--dsw-alias-scrollbar-bg-l2': { light: '#E0DDD3', dark: '#3A3F58' },
         '--dsw-alias-scrollbar-hover-l2': { light: '#C2BCAC', dark: '#565C7E' },
       }))
+
+      // Tooltip bubbles hard-code white text (--dsw-static-neutral-bluish-00)
+      // while this theme swaps their background to a light fill, making them
+      // white-on-white in light mode. Re-color them through the theme-aware
+      // toast label token. NOTE: the class hash is build-specific; update the
+      // selector if a UI update makes tooltips unreadable again.
+      if (typeof document !== 'undefined') {
+        const tooltipTagId = 'dsh-eye-care-theme/tooltip-color'
+        if (document.querySelector('style[data-plugin-css=' + JSON.stringify(tooltipTagId) + ']') === null) {
+          const tooltipTag = document.createElement('style')
+          tooltipTag.dataset.plugin = 'dsh-eye-care-theme'
+          tooltipTag.dataset.pluginCss = tooltipTagId
+          tooltipTag.textContent = '._bubble_44yfq_1{color:var(--dsw-alias-toast-label,#4F4B45)!important}'
+          document.head.appendChild(tooltipTag)
+        }
+      }
     }
 
     return module.exports
